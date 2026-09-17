@@ -3,139 +3,274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>保护环境，守护地球</title>
+    <title>梦幻欧洲：经典三城10日深度游指南</title>
     <style>
-        /* 页面基础样式 */
-        body {
-            font-family: "Microsoft YaHei", sans-serif;
+        /* 全局样式 */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f4f9f4;
+            background-color: #f7f9fa;
         }
-        /* 导航栏 */
+
+        /* 顶部横幅 */
         header {
-            background-color: #2e7d32;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://unsplash.com') no-repeat center center/cover;
             color: white;
-            padding: 1rem 0;
             text-align: center;
+            padding: 100px 20px;
         }
-        /* 主图区域 */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://unsplash.com');
-            background-size: cover;
-            background-position: center;
-            height: 300px;
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+        header p {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+
+        /* 容器布局 */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* 概览板块 */
+        .overview {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        .overview h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .overview-item strong {
+            color: #2980b9;
+        }
+
+        /* 日程时间轴布局 */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .day-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        @media(min-width: 768px) {
+            .day-card {
+                flex-direction: row;
+            }
+        }
+        
+        /* 卡片图片区 placeholder */
+        .day-image {
+            background-color: #e0e0e0;
+            min-height: 200px;
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* 卡片文字内容区 */
+        .day-content {
+            padding: 25px;
+            flex: 2;
+        }
+        .day-badge {
+            background-color: #e74c3c;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
         }
-        /* 内容板块 */
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 20px;
+        .day-title {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
         }
-        .section {
-            background: white;
-            margin-bottom: 20px;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        .spots-list {
+            margin-top: 15px;
+            list-style: none;
         }
-        h2 {
-            color: #2e7d32;
-            border-left: 5px solid #2e7d32;
-            padding-left: 10px;
+        .spots-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
         }
-        /* 三个主要行动点列表 */
-        .actions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        .spots-list li::before {
+            content: "📍";
+            position: absolute;
+            left: 0;
+            top: 0;
         }
-        .action-card {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
+        .tips {
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: #fcf8e3;
+            border-left: 4px solid #f0ad4e;
+            font-size: 0.9rem;
+            color: #8a6d3b;
+            border-radius: 0 4px 4px 0;
         }
-        .action-card span {
-            font-size: 40px;
-        }
+
         /* 页脚 */
         footer {
+            background-color: #2c3e50;
+            color: white;
             text-align: center;
             padding: 20px;
-            background-color: #333;
-            color: white;
-            margin-top: 40px;
+            margin-top: 60px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
+    <!-- 顶部横幅 -->
     <header>
-        <h1>绿色家园 · 共同守护</h1>
+        <h1>欧洲经典三城 10 日深度游</h1>
+        <p>玩转伦敦、巴黎、罗马，邂逅艺术与历史的浪漫史诗</p>
     </header>
 
-    <div class="hero">
-        <div style="text-align:center;">
-            <h2>让地球呼吸，让生命长青</h2>
-            <p>从今天起，做一个环保的倡导者和践行者</p>
-        </div>
-    </div>
-
     <div class="container">
-        <!-- 现状说明 -->
-        <div class="section">
-            <h2>为什么要保护环境？</h2>
-            <p>
-                环境是人类生存的根基。随着工业化进程的加快，我们的地球正面临着气候变暖、资源枯竭、生物多样性丧失等严峻挑战。
-                保护环境不仅是为了拯救地球，更是为了保护我们自己和子孙后代的未来。
-            </p>
-        </div>
-
-        <!-- 环保建议 -->
-        <div class="section">
-            <h2>我们可以做什么？</h2>
-            <div class="actions">
-                <div class="action-card">
-                    <span>♻️</span>
-                    <h3>资源回收</h3>
-                    <p>严格执行垃圾分类，减少塑料袋的使用，让废弃物重新焕发生机。</p>
+        <!-- 行程概览 -->
+        <section class="overview">
+            <h2>📅 行程概览</h2>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <p><strong>游玩天数：</strong>10天9晚</p>
+                    <p><strong>途经国家：</strong>英国、法国、意大利</p>
                 </div>
-                <div class="action-card">
-                    <span>💡</span>
-                    <h3>节能减排</h3>
-                    <p>随手关灯，节约用水，尽量选择公共交通或骑行等低碳出行方式。</p>
-                </div>
-                <div class="action-card">
-                    <span>🌱</span>
-                    <h3>亲近自然</h3>
-                    <p>参加植树造林活动，不随意践踏草坪，保护身边的每一抹绿色。</p>
+                <div class="overview-item">
+                    <p><strong>核心城市：</strong>伦敦、巴黎、罗马</p>
+                    <p><strong>出行交通：</strong>欧洲之星高铁 + 跨国航班</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- 环保宣言 -->
-        <div class="section">
-            <h2>环保小知识</h2>
-            <ul>
-                <li>回收一吨废纸，可以保护17棵大树。</li>
-                <li>一度电的浪费，相当于排放了近1公斤的二氧化碳。</li>
-                <li>塑料袋在自然界中降解通常需要200年甚至更久。</li>
-            </ul>
-        </div>
-    </div>
+        <!-- 每日行程列表 -->
+        <section class="timeline">
 
-    <footer>
-        <p>&copy; 2026 保护环境网页 demo | 让我们一起行动</p>
-    </footer>
+            <!-- Day 1 -->
+            <div class="day-card">
+                <div class="day-image" style="background-image: url('https://unsplash.com');">伦敦</div>
+                <div class="day-content">
+                    <span class="day-badge">DAY 1</span>
+                    <h3 class="day-title">抵达伦敦 - 初识英伦风情</h3>
+                    <p>飞抵伦敦，前往酒店办理入住，洗去旅途疲惫。下午在泰晤士河畔漫步，感受古典与现代交织的英伦初印象。</p>
+                    <ul class="spots-list">
+                        <li><strong>伦敦眼：</strong>傍晚时分登上升降舱，俯瞰全城绝美日落与夜景。</li>
+                    </ul>
+                    <div class="tips">💡 提示：提前在网上预订伦敦眼门票可以减少现场排队时间。</div>
+                </div>
+            </div>
 
-</body>
-</html>
+            <!-- Day 2 -->
+            <div class="day-card">
+                <div class="day-image" style="background-image: url('https://unsplash.com');">伦敦</div>
+                <div class="day-content">
+                    <span class="day-badge">DAY 2</span>
+                    <h3 class="day-title">大本钟与皇家历史洗礼</h3>
+                    <p>全天游览伦敦市中心最经典的皇家与政治地标，感受大不列颠的厚重历史。</p>
+                    <ul class="spots-list">
+                        <li><strong>大本钟与威斯敏斯特教堂：</strong>英国标志性哥特式建筑，历代国王加冕地。</li>
+                        <li><strong>白金汉宫：</strong>上午11点可观看威武庄严的皇家卫队换岗仪式。</li>
+                        <li><strong>大英博物馆：</strong>世界三大博物馆之一，免费入场参观顶级人类文明瑰宝。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="day-card">
+                <div class="day-image" style="background-image: url('https://unsplash.com');">伦敦</div>
+                <div class="day-content">
+                    <span class="day-badge">DAY 3</span>
+                    <h3 class="day-title">伦敦塔桥与现代艺术交融</h3>
+                    <p>探索伦敦东区的经典建筑，随后前往繁华的西区享受下午茶和戏剧文化。</p>
+                    <ul class="spots-list">
+                        <li><strong>伦敦塔桥：</strong>漫步在标志性的蓝色双塔桥梁上，拍摄泰晤士河风光。</li>
+                        <li><strong>西区剧院：</strong>晚上去莱斯特广场或考文特花园附近观看一场正宗的百老汇/西区音乐剧。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="day-card">
+                <div class="day-image" style="background-image: url('https://unsplash.com');">巴黎</div>
+                <div class="day-content">
+                    <span class="day-badge">DAY 4</span>
+                    <h3 class="day-title">欧洲之星飞越海峡 - 遇见巴黎</h3>
+                    <p>上午搭乘“欧洲之星”高铁路过英吉利海峡隧道前往法国巴黎。下午入住后前往市中心，一睹铁塔芳容。</p>
+                    <ul class="spots-list">
+                        <li><strong>埃菲尔铁塔：</strong>前往战神广场或夏尔依宫观景台，捕捉铁塔最美的角度。</li>
+                        <li><strong>塞纳河游船：</strong>夜幕降临，乘船游览，两岸的巴黎圣母院、奥赛博物馆在灯光下如梦似幻。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="day-card">
+                <div class="day-image" style="background-image: url('https://unsplash.com');">巴黎</div>
+                <div class="day-content">
+                    <span class="day-badge">DAY 5</span>
+                    <h3 class="day-title">卢浮宫艺术盛宴与香榭丽舍</h3>
+                    <p>今天是一场顶级的视觉与艺术之旅，近距离欣赏世界艺术名作，随后体验巴黎的时尚与繁华。</p>
+                    <ul class="spots-list">
+                        <li><strong>卢浮宫博物馆：</strong>朝圣“卢浮宫三宝”——《蒙娜丽莎》、《断臂维纳斯》和《胜利女神》。</li>
+                        <li><strong>香榭丽舍大道与凯旋门：</strong>漫步宽阔的林荫大道，攀登凯旋门俯瞰巴黎十二道放射状街景。</li>
+                    </ul>
+                    <div class="tips">💡 提示：卢浮宫每周二闭馆，请务必合理规划出行日期！</div>
+                </div>
+            </div>
+
+            <!-- Day 6 -->
+            <div class="day-card">
+                <div class="day-image" style="background-image: url('https://unsplash.com');">凡尔赛</div>
+                <div class="day-content">
+                    <span class="day-badge">DAY 6</span>
+                    <h3 class="day-title">凡尔赛宫的奢华与蒙马特高地</h3>
+                    <p>上午前往近郊感受法兰西帝国的奢华巅峰，下午回到市区感受波西米亚式的浪漫艺术气息。</p>
+                    <ul class="spots-list">
+                        <li><strong>凡尔赛宫：</strong>参观极尽奢华的镜厅与修剪整齐的皇家后花园。</li>
+                        <li><strong>蒙马特高地与圣心大教堂：</strong>站在巴黎最高点俯瞰全城，逛一逛充满画家与咖啡馆的小丘广场。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Day 7 -->
+            <div class="day-card">
+                <div class="day-image" style="background-image: url('https://unsplash.com');">罗马</div>
+                <div class="day-content">
